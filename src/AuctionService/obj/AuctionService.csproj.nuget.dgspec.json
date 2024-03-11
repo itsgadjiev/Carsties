@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ceyhu\\OneDrive\\Рабочий стол\\Carsties\\Carsties\\src\\AuctionService\\AuctionService.csproj": {}
+    "C:\\Users\\ceyhu\\OneDrive\\Рабочий стол\\Carsties\\src\\AuctionService\\AuctionService.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ceyhu\\OneDrive\\Рабочий стол\\Carsties\\Carsties\\src\\AuctionService\\AuctionService.csproj": {
+    "C:\\Users\\ceyhu\\OneDrive\\Рабочий стол\\Carsties\\src\\AuctionService\\AuctionService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ceyhu\\OneDrive\\Рабочий стол\\Carsties\\Carsties\\src\\AuctionService\\AuctionService.csproj",
+        "projectUniqueName": "C:\\Users\\ceyhu\\OneDrive\\Рабочий стол\\Carsties\\src\\AuctionService\\AuctionService.csproj",
         "projectName": "AuctionService",
-        "projectPath": "C:\\Users\\ceyhu\\OneDrive\\Рабочий стол\\Carsties\\Carsties\\src\\AuctionService\\AuctionService.csproj",
+        "projectPath": "C:\\Users\\ceyhu\\OneDrive\\Рабочий стол\\Carsties\\src\\AuctionService\\AuctionService.csproj",
         "packagesPath": "C:\\Users\\ceyhu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ceyhu\\OneDrive\\Рабочий стол\\Carsties\\Carsties\\src\\AuctionService\\obj\\",
+        "outputPath": "C:\\Users\\ceyhu\\OneDrive\\Рабочий стол\\Carsties\\src\\AuctionService\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ceyhu\\AppData\\Roaming\\NuGet\\NuGet.Config",

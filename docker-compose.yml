@@ -1,12 +1,10 @@
-version: '3.4'
-
 services:
   postgres:
     image: postgres
     environment:
       - POSTGRES_PASSWORD=admin
     ports:
-      - 5432:5432
+      - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
 
@@ -15,6 +13,20 @@ services:
     build:
       context: .
       dockerfile: src/AuctionService/Dockerfile
+    environment:
+      - ConnectionStrings__default=Server=postgres;Port=5432;Database=auctionsdb;User Id=postgres;Password=admin;
+    depends_on:
+      - postgres
+  
+  searchservice:
+    image: ${DOCKER_REGISTRY-}searchservice
+    build:
+      context: .
+      dockerfile: src/SearchService/Dockerfile
+    environment:
+      - ConnectionStrings__default=Server=postgres;Port=5432;Database=searchsdb;User Id=postgres;Password=admin;
+    depends_on:
+      - postgres
 
 volumes:
   pgdata:

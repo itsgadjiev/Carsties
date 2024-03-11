@@ -43,7 +43,7 @@ namespace AuctionService.Data.Repositories
 
             if (!string.IsNullOrEmpty(date))
             {
-                query = query.Where(x => x.UpdatedAt.Value.CompareTo(DateTime.Parse(date).ToUniversalTime()) > 0);
+                query = query.Where(x => x.UpdatedAt.CompareTo(DateTime.Parse(date).ToUniversalTime()) > 0);
             }
 
             return await query.ProjectTo<AuctionDto>(_mapper.ConfigurationProvider).ToListAsync();

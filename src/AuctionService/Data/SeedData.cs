@@ -24,7 +24,7 @@ namespace AuctionService.Data
             }
 
             var auctions = new List<Auction>()
-        {
+            {
             // 1 Ford GT
             new Auction
             {

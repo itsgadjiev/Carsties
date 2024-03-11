@@ -1,0 +1,72 @@
+name: dockercompose8869317141447554396
+services:
+  auctionservice:
+    build:
+      context: C:\Users\ceyhu\OneDrive\Рабочий стол\Carsties
+      dockerfile: src/AuctionService/Dockerfile
+    depends_on:
+      postgres:
+        condition: service_started
+        required: true
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+      ConnectionStrings__default: Server=postgres;Port=5432;Database=auctionsdb;User Id=postgres;Password=admin;
+    image: auctionservice
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 80
+        protocol: tcp
+      - mode: ingress
+        target: 443
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: C:\Users\ceyhu\AppData\Roaming/Microsoft/UserSecrets
+        target: /root/.microsoft/usersecrets
+        read_only: true
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Users\ceyhu\AppData\Roaming/ASP.NET/Https
+        target: /root/.aspnet/https
+        read_only: true
+        bind:
+          create_host_path: true
+  postgres:
+    environment:
+      POSTGRES_PASSWORD: admin
+    image: postgres
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 5432
+        published: "5432"
+        protocol: tcp
+    volumes:
+      - type: volume
+        source: pgdata
+        target: /var/lib/postgresql/data
+        volume: {}
+  searchservice:
+    build:
+      context: C:\Users\ceyhu\OneDrive\Рабочий стол\Carsties
+      dockerfile: src/SearchService/Dockerfile
+    depends_on:
+      postgres:
+        condition: service_started
+        required: true
+    environment:
+      ConnectionStrings__default: Server=postgres;Port=5432;Database=searchsdb;User Id=postgres;Password=admin;
+    image: searchservice
+    networks:
+      default: null
+networks:
+  default:
+    name: dockercompose8869317141447554396_default
+volumes:
+  pgdata:
+    name: dockercompose8869317141447554396_pgdata
